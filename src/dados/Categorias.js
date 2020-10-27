@@ -1,26 +1,26 @@
 export default class Categorias{
     constructor(){
         this.categorias = [];
-        this._inscrito = [];
+        this._inscritos = [];
     }
+
+    inscrever(func){
+        this._inscritos.push(func);
+    }
+
+    notificar(){
+        this._inscritos.forEach(func =>{
+                func(this.categorias);
+            } );
+    }
+
 
     adicionarCategoria(novaCategoria){
         this.categorias.push(novaCategoria);
         this.notificar();
     }
 
-    inscrever(func){
-        this._inscrito.push(func);
-    }
-
-    notificar(){
-        this._inscrito.forEach(
-            func =>{
-                func(this.categorias);
-            }
-        )
-    }
-
+    
 
 
 }
